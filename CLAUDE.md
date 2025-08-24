@@ -33,8 +33,10 @@ The marketing site serves as the primary SEO and discovery layer, driving qualif
 ### Technology Stack
 - **Astro.js**: Static site generator for optimal SEO performance
 - **TypeScript**: Type safety across the codebase
-- **Tailwind CSS v4**: Utility-first CSS framework (when implemented)
-- **daisyUI**: Component library (planned)
+- **Tailwind CSS v3**: Utility-first CSS framework (Astro-compatible)
+- **No React dependencies**: Pure Astro + vanilla JS approach
+- **daisyUI**: Under evaluation vs pure Tailwind (see `.knowledge/decisions/`)
+- **Bun**: Package manager (dependencies installed, project running)
 
 ## Project Context
 
@@ -48,16 +50,22 @@ The marketing site serves as the primary SEO and discovery layer, driving qualif
 ### Important Documentation
 - **ASTRO-IMPLEMENTATION-PLAN.md**: Detailed 6-8 week implementation roadmap
 - **marketing-expert-recommendation.md**: SEO and positioning strategy
+- **`.knowledge/`**: Project knowledge base with decisions, rules, and guidelines
 
-## Current State
+## Current State & Strategy
 
-The project is in early stages with basic Astro setup. The implementation should follow the comprehensive plan in ASTRO-IMPLEMENTATION-PLAN.md, which includes:
+**MVP Focus**: 2-week sprint targeting 3 essential pages for fastest market entry:
+1. **Homepage** (`/`) - Hero with clear "Convert Text to Images (Not AI Art)" messaging
+2. **Text-to-PNG Landing** (`/text-to-png`) - Target highest-value keyword (1,300 searches/month)
+3. **FAQ Page** (`/faq`) - Address AI confusion, build trust
 
-- Homepage with clear utility positioning
-- Intent-specific landing pages (/text-to-png, /text-to-jpg, /text-to-webp)
-- Trust pages (FAQ, About, Privacy, Terms)
-- Machine-readable specifications for LLM discovery
-- Performance optimization for Core Web Vitals
+**Post-MVP**: Scale based on data with remaining landing pages and trust content.
+
+### Development Constraints
+- **NO React dependencies** - Keep pure Astro + vanilla JS
+- **Minimize libraries** - Only add dependencies with significant value
+- **Performance targets**: Lighthouse >95, Core Web Vitals optimized
+- **Animation**: CSS-based animations inspired by animate-ui (no JS animation libraries)
 
 ## Key Implementation Notes
 
