@@ -1,0 +1,197 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="py-16 bg-base-200">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-base-content mb-4">
+        Choose Your Perfect Format
+      </h2>
+      <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+        Each format is optimized for specific use cases. Pick the one that fits your needs.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- PNG Format -->
+      <div class="card bg-base-100 shadow-xl border-2 border-primary/20 hover:border-primary/40 transition-colors">
+        <div class="card-body">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="badge badge-primary badge-lg font-bold">PNG</div>
+            <h3 class="card-title">Transparent Magic</h3>
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Transparent backgrounds</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Perfect for logos & graphics</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Lossless quality</span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <p class="text-sm font-semibold text-base-content/80 mb-2">Perfect for:</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="badge badge-outline badge-sm">Watermarks</span>
+              <span class="badge badge-outline badge-sm">Logos</span>
+              <span class="badge badge-outline badge-sm">Icons</span>
+              <span class="badge badge-outline badge-sm">Overlays</span>
+            </div>
+          </div>
+
+          <div class="card-actions justify-end">
+            <Button 
+              href="https://create.t2i.app" 
+              variant="primary" 
+              size="sm"
+              target="_blank"
+            >
+              Create PNG →
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <!-- JPG Format -->
+      <div class="card bg-base-100 shadow-xl border-2 border-secondary/20 hover:border-secondary/40 transition-colors">
+        <div class="card-body">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="badge badge-secondary badge-lg font-bold">JPG</div>
+            <h3 class="card-title">Optimized Size</h3>
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Smaller file sizes</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Universal compatibility</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Fast loading</span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <p class="text-sm font-semibold text-base-content/80 mb-2">Perfect for:</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="badge badge-outline badge-sm">Social Media</span>
+              <span class="badge badge-outline badge-sm">Thumbnails</span>
+              <span class="badge badge-outline badge-sm">Blogs</span>
+              <span class="badge badge-outline badge-sm">Emails</span>
+            </div>
+          </div>
+
+          <div class="card-actions justify-end">
+            <Button 
+              href="https://create.t2i.app" 
+              variant="secondary" 
+              size="sm"
+              target="_blank"
+            >
+              Create JPG →
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <!-- WebP Format -->
+      <div class="card bg-base-100 shadow-xl border-2 border-accent/20 hover:border-accent/40 transition-colors">
+        <div class="card-body">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="badge badge-accent badge-lg font-bold">WebP</div>
+            <h3 class="card-title">Modern & Fast</h3>
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Best compression</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>High quality</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span>Web optimized</span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <p class="text-sm font-semibold text-base-content/80 mb-2">Perfect for:</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="badge badge-outline badge-sm">Websites</span>
+              <span class="badge badge-outline badge-sm">Apps</span>
+              <span class="badge badge-outline badge-sm">Performance</span>
+              <span class="badge badge-outline badge-sm">Modern</span>
+            </div>
+          </div>
+
+          <div class="card-actions justify-end">
+            <Button 
+              href="https://create.t2i.app" 
+              variant="accent" 
+              size="sm"
+              target="_blank"
+            >
+              Create WebP →
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Info -->
+    <div class="mt-12 text-center">
+      <div class="card bg-base-100 shadow-lg max-w-3xl mx-auto">
+        <div class="card-body">
+          <h3 class="card-title justify-center mb-4">Need Help Choosing?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="text-center p-3 bg-base-200 rounded">
+              <div class="font-semibold text-primary mb-1">For Transparency</div>
+              <div class="text-base-content/70">Choose PNG for logos, watermarks, and graphics that need transparent backgrounds</div>
+            </div>
+            <div class="text-center p-3 bg-base-200 rounded">
+              <div class="font-semibold text-secondary mb-1">For Sharing</div>
+              <div class="text-base-content/70">Choose JPG for social media posts, thumbnails, and general image sharing</div>
+            </div>
+            <div class="text-center p-3 bg-base-200 rounded">
+              <div class="font-semibold text-accent mb-1">For Performance</div>
+              <div class="text-base-content/70">Choose WebP for websites and apps where file size and quality matter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

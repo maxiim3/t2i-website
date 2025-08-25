@@ -1,10 +1,51 @@
 ---
-import TestFoundation from '../components/TestFoundation.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Features from '../components/sections/Features.astro';
+import FormatShowcase from '../components/sections/FormatShowcase.astro';
+import CTA from '../components/sections/CTA.astro';
 
-// T2I Marketing Website - Development Foundation Test Page
+// T2I Marketing Website - Homepage
+const title = "T2I - Convert Text to Images (Not AI Art)";
+const description = "Free online tool to convert text into PNG, JPG, or WebP images. Perfect for social media graphics, thumbnails, and quotes. No signup required, privacy-first.";
+
+// Structured data for homepage
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "T2I",
+  "description": description,
+  "url": "https://t2i.app",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Convert text to PNG images",
+    "Convert text to JPG images", 
+    "Convert text to WebP images",
+    "Customizable fonts and colors",
+    "Transparent background support",
+    "No account registration required",
+    "Privacy-focused processing"
+  ],
+  "applicationSubCategory": "Text to Image Converter"
+};
 ---
 
-<Layout title="T2I - Development Foundation Test">
-	<TestFoundation />
+<Layout 
+  title={title}
+  description={description}
+  structuredData={structuredData}
+  ogType="website"
+  ogTitle={title}
+  ogDescription={description}
+>
+  <Hero />
+  <Features />
+  <FormatShowcase />
+  <CTA />
 </Layout>
