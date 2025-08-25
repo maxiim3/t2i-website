@@ -1,0 +1,94 @@
+---
+import { cn } from '../../lib/utils';
+
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'accent' | 'ghost' | 'outline' | 'success' | 'warning' | 'error';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  loading?: boolean;
+  wide?: boolean;
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  loading = false,
+  wide = false,
+  href,
+  target,
+  rel,
+  class: className,
+  ...rest
+} = Astro.props;
+
+// Base button classes
+const baseClasses = 'btn';
+
+// Variant classes
+const variantClasses = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary', 
+  accent: 'btn-accent',
+  ghost: 'btn-ghost',
+  outline: 'btn-outline',
+  success: 'btn-success',
+  warning: 'btn-warning',
+  error: 'btn-error'
+} as const;
+
+// Size classes
+const sizeClasses = {
+  xs: 'btn-xs',
+  sm: 'btn-sm', 
+  md: '', // default size
+  lg: 'btn-lg'
+} as const;
+
+// Compute final classes using cn utility
+const buttonClasses = cn(
+  baseClasses,
+  variantClasses[variant],
+  sizeClasses[size],
+  {
+    'btn-disabled': disabled,
+    'btn-wide': wide,
+    'loading': loading
+  },
+  className
+);
+
+// Determine if we should render as link or button
+const isLink = !!href;
+const Component = isLink ? 'a' : 'button';
+
+// Link-specific props
+const linkProps = isLink ? {
+  href,
+  target,
+  rel: target === '_blank' ? 'noopener noreferrer' : rel
+} : {};
+
+// Button-specific props  
+const buttonProps = !isLink ? {
+  type: rest.type || 'button',
+  disabled: disabled || loading
+} : {};
+---
+
+<Component 
+  class={buttonClasses}
+  {...linkProps}
+  {...buttonProps}
+  {...rest}
+>
+  {loading && (
+    <span class="loading loading-spinner loading-sm mr-2"></span>
+  )}
+  <slot />
+</Component>
