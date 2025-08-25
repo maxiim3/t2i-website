@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Main pages
+Allow: /
+Allow: /text-to-png
+Allow: /faq
+
+# Block admin/private paths if any exist in future
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://t2i.app/sitemap.xml
+
+# Crawl-delay (optional - be respectful)
+Crawl-delay: 1
