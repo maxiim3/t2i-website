@@ -1,10 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FAQSection, { structuredData } from '../components/sections/FAQSection.astro';
+import FAQSection from '../components/sections/FAQSection.astro';
 
 const title = "FAQ - T2I Text-to-Image Converter";
 const description = "Frequently asked questions about T2I, the simple text-to-image conversion tool. Learn what T2I does, how it differs from AI art generators, and common use cases.";
 const currentPath = '/faq';
+
+// Generate structured data for FAQ
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "T2I Frequently Asked Questions", 
+  "description": "Common questions about T2I text-to-image conversion tool",
+  "url": "https://t2i.app/faq",
+  "publisher": {
+    "@type": "Organization",
+    "name": "T2I",
+    "url": "https://t2i.app"
+  }
+};
 ---
 
 <Layout 
