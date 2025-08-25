@@ -1,0 +1,364 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+
+// SEO optimization for "text to PNG" keyword
+const title = "Convert Text to PNG - Free Online Text to Image Tool";
+const description = "Create high-quality PNG images from text with transparent backgrounds. Perfect for logos, watermarks, and social media graphics. No signup required.";
+
+// Structured data for text-to-PNG conversion
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert Text to PNG Images",
+  "description": description,
+  "totalTime": "PT1M",
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Text content"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "T2I Text to PNG Converter",
+      "url": "https://create.t2i.app"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter Your Text",
+      "text": "Type or paste the text you want to convert into a PNG image"
+    },
+    {
+      "@type": "HowToStep", 
+      "position": 2,
+      "name": "Customize Appearance",
+      "text": "Choose fonts, colors, and background options for your PNG image"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Download PNG",
+      "text": "Generate and download your high-quality PNG image with transparent background"
+    }
+  ]
+};
+---
+
+<Layout 
+  title={title}
+  description={description}
+  structuredData={structuredData}
+  ogTitle={title}
+  ogDescription={description}
+>
+  <!-- Hero Section -->
+  <section class="hero min-h-[80vh] bg-gradient-to-br from-base-100 to-base-200 flex items-center">
+    <div class="hero-content text-center max-w-5xl mx-auto px-4">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h1 class="text-4xl md:text-6xl font-bold text-base-content leading-tight">
+            Convert Text to PNG
+          </h1>
+          <p class="text-lg md:text-xl text-base-content/80 max-w-2xl mx-auto leading-relaxed">
+            Create high-quality PNG images from your text with transparent backgrounds. 
+            Perfect for logos, watermarks, and graphics that need professional quality.
+          </p>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-base-content/60">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Free PNG Conversion</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Transparent Backgrounds</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span>No Signup Required</span>
+          </div>
+        </div>
+
+        <!-- Primary CTA -->
+        <div class="space-y-4">
+          <Button 
+            href="https://create.t2i.app" 
+            variant="primary" 
+            size="lg"
+            target="_blank"
+            class="btn-wide text-lg"
+          >
+            Create PNG Images Now →
+          </Button>
+          <p class="text-sm text-base-content/60">
+            Start creating in seconds • Works in your browser
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PNG Benefits Section -->
+  <section class="py-16 bg-base-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-base-content mb-4">
+          Why Choose PNG Format?
+        </h2>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+          PNG format offers unique advantages for text-based images that other formats can't match
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Transparent Backgrounds -->
+        <div class="card bg-base-200 shadow-lg">
+          <div class="card-body text-center">
+            <div class="mx-auto mb-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-primary-content" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="card-title text-xl justify-center mb-3">Transparent Backgrounds</h3>
+            <p class="text-base-content/70">
+              PNG supports true transparency, making it perfect for logos, watermarks, and overlays that need to blend seamlessly with any background.
+            </p>
+          </div>
+        </div>
+
+        <!-- Lossless Quality -->
+        <div class="card bg-base-200 shadow-lg">
+          <div class="card-body text-center">
+            <div class="mx-auto mb-4 w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-secondary-content" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
+            </div>
+            <h3 class="card-title text-xl justify-center mb-3">Crystal Clear Text</h3>
+            <p class="text-base-content/70">
+              Lossless compression ensures your text remains sharp and readable at any size, with no compression artifacts or blurring.
+            </p>
+          </div>
+        </div>
+
+        <!-- Universal Compatibility -->
+        <div class="card bg-base-200 shadow-lg">
+          <div class="card-body text-center">
+            <div class="mx-auto mb-4 w-16 h-16 bg-accent rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-accent-content" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+              </svg>
+            </div>
+            <h3 class="card-title text-xl justify-center mb-3">Universal Support</h3>
+            <p class="text-base-content/70">
+              PNG works everywhere - all browsers, social media platforms, design tools, and print applications support PNG format natively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="py-16 bg-base-200">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-base-content mb-4">
+          Perfect for These Use Cases
+        </h2>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+          See how PNG format excels in real-world applications
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card bg-base-100 shadow-lg">
+          <div class="card-body text-center p-6">
+            <div class="text-2xl mb-3">📱</div>
+            <h3 class="font-semibold mb-2">Social Media Graphics</h3>
+            <p class="text-sm text-base-content/70">Quote cards, story graphics, and post overlays with transparent backgrounds</p>
+          </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-lg">
+          <div class="card-body text-center p-6">
+            <div class="text-2xl mb-3">🏢</div>
+            <h3 class="font-semibold mb-2">Business Logos</h3>
+            <p class="text-sm text-base-content/70">Company logos, brand names, and business graphics that work on any background</p>
+          </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-lg">
+          <div class="card-body text-center p-6">
+            <div class="text-2xl mb-3">🔒</div>
+            <h3 class="font-semibold mb-2">Watermarks</h3>
+            <p class="text-sm text-base-content/70">Copyright watermarks and brand stamps with transparent backgrounds</p>
+          </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-lg">
+          <div class="card-body text-center p-6">
+            <div class="text-2xl mb-3">🌐</div>
+            <h3 class="font-semibold mb-2">Web Graphics</h3>
+            <p class="text-sm text-base-content/70">Website headers, buttons, and UI elements that integrate seamlessly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-16 bg-base-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-base-content mb-4">
+          How to Convert Text to PNG
+        </h2>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+          Simple 3-step process to create professional PNG images from your text
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary text-primary-content rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              1
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Enter Your Text</h3>
+            <p class="text-base-content/70">
+              Type or paste the text you want to convert. Add line breaks, spacing, or any content you need.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-secondary text-secondary-content rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              2
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Customize Style</h3>
+            <p class="text-base-content/70">
+              Choose fonts, colors, text size, and background options. Preview your changes in real-time.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-accent text-accent-content rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              3
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Download PNG</h3>
+            <p class="text-base-content/70">
+              Generate your image and download the high-quality PNG file with transparent background.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <Button 
+            href="https://create.t2i.app" 
+            variant="primary" 
+            size="lg"
+            target="_blank"
+            class="btn-wide"
+          >
+            Try It Now - Create PNG →
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-base-200">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-base-content mb-4">
+          PNG Conversion FAQ
+        </h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        <div class="collapse collapse-plus bg-base-100">
+          <input type="radio" name="faq-accordion" checked="checked" />
+          <div class="collapse-title text-lg font-medium">
+            What makes PNG better than other formats for text images?
+          </div>
+          <div class="collapse-content">
+            <p class="text-base-content/70">PNG offers lossless compression and transparency support, making it ideal for text-based graphics. Unlike JPG, PNG doesn't create compression artifacts around text, and unlike WebP, PNG has universal compatibility across all platforms and applications.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-medium">
+            Can I create transparent background PNG images?
+          </div>
+          <div class="collapse-content">
+            <p class="text-base-content/70">Yes! PNG format natively supports transparency. You can create text images with completely transparent backgrounds, perfect for overlays, watermarks, and graphics that need to blend with any background color or image.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-medium">
+            What's the maximum text length I can convert to PNG?
+          </div>
+          <div class="collapse-content">
+            <p class="text-base-content/70">There's no strict limit on text length. You can convert single words, paragraphs, or longer content. The tool automatically adjusts the image dimensions based on your text content and formatting choices.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-medium">
+            Do I need to create an account to convert text to PNG?
+          </div>
+          <div class="collapse-content">
+            <p class="text-base-content/70">No account required! T2I works immediately in your browser. Your text and generated images are processed locally for privacy, and you can start creating PNG images right away without any signup process.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-base-content">
+          Ready to Create PNG Images?
+        </h2>
+        <p class="text-lg text-base-content/70">
+          Join thousands creating professional PNG images from text every day. 
+          Start converting in seconds with transparent backgrounds and crystal-clear quality.
+        </p>
+        
+        <Button 
+          href="https://create.t2i.app" 
+          variant="primary" 
+          size="lg"
+          target="_blank"
+          class="btn-wide text-lg shadow-lg"
+        >
+          Start Creating PNG Images →
+        </Button>
+        
+        <p class="text-sm text-base-content/60">
+          Free • No Signup • Instant Results
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
