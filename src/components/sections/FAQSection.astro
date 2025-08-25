@@ -1,56 +1,52 @@
 ---
 import FAQItem from '../ui/FAQItem.astro';
 
-// FAQ data structure
+// FAQ data structure - Restructured for trust and clarity
 const faqData = [
-  // Tier 1: AI Disambiguation (Prominent)
+  // Tier 1: Value First - Lead with what T2I does
   {
-    question: "Is T2I an AI art generator?",
-    answer: `<p><strong>No, T2I is not an AI art generator</strong> like DALL-E, Midjourney, or Stable Diffusion.</p>
-    <p>T2I is a simple utility tool that converts plain text into image files (PNG, JPG, WebP). Think of it like a digital text-to-image printer, not an AI artist. You provide text, T2I renders it as an image with your chosen fonts, colors, and formatting.</p>`,
-    isProminent: true,
-    id: "is-this-ai"
-  },
-  {
-    question: "How is T2I different from AI art generators?",
-    answer: `<p>The key differences are:</p>
-    <ul>
-      <li><strong>T2I</strong>: Takes your text and renders it exactly as you typed it into an image format</li>
-      <li><strong>AI Art Generators</strong>: Interpret text descriptions to create artistic images, photos, or drawings</li>
-    </ul>
-    <p>T2I doesn't create new visual content - it simply converts existing text into image format for practical use cases like logos, social media graphics, and watermarks.</p>`,
-    isProminent: true,
-    id: "difference-from-ai"
-  },
-  {
-    question: "Does T2I create AI-generated artwork?",
-    answer: `<p><strong>No</strong>, T2I creates no artwork at all. It's a text formatting tool that outputs images instead of documents.</p>
-    <p>For example: If you input "Hello World", T2I outputs an image containing the text "Hello World" - nothing more, nothing less. No artificial intelligence is involved in creating or interpreting content.</p>`,
-    isProminent: true,
-    id: "no-ai-artwork"
-  },
-  
-  // Tier 2: Utility Explanation
-  {
-    question: "What exactly does T2I do?",
-    answer: `<p>T2I converts plain text into high-quality image files. Here's the simple process:</p>
+    question: "What does T2I do?",
+    answer: `<p>T2I converts your text into professional image files instantly. Here's how it works:</p>
     <ol>
-      <li>You type or paste your text</li>
+      <li>Type or paste your text</li>
       <li>Choose fonts, colors, and background options</li>
-      <li>T2I renders your text as a PNG, JPG, or WebP image</li>
-      <li>Download your image file</li>
+      <li>Download your image file (PNG format, with JPG and WebP coming soon)</li>
     </ol>
-    <p>It's perfect for creating text-based graphics for social media, websites, presentations, and anywhere you need text in image format.</p>`,
+    <p>Perfect for social media graphics, website headers, presentations, and anywhere you need text as an image.</p>`,
+    isProminent: true,
     id: "what-does-t2i-do"
   },
   {
-    question: "How does T2I convert text to images?",
-    answer: `<p>T2I uses web browser technology to render text with your chosen styling (fonts, colors, backgrounds) onto a digital canvas, then exports that canvas as an image file.</p>
-    <p>All processing happens locally in your browser - no servers involved. The text rendering uses the same technology that displays text on websites, ensuring high quality and accuracy.</p>`,
-    id: "how-conversion-works"
+    question: "How quickly can I create text images?",
+    answer: `<p>Creating text images with T2I takes <strong>less than 30 seconds</strong>:</p>
+    <ul>
+      <li><strong>No account setup</strong> - Start immediately</li>
+      <li><strong>Instant preview</strong> - See results as you type</li>
+      <li><strong>One-click download</strong> - Get your image file instantly</li>
+      <li><strong>No design skills needed</strong> - Just type and choose your style</li>
+    </ul>
+    <p>It's the fastest way to turn text into professional images.</p>`,
+    isProminent: true,
+    id: "creation-speed"
   },
   {
-    question: "What image formats does T2I support?",
+    question: "What can I create with T2I?",
+    answer: `<p>T2I is perfect for creating:</p>
+    <ul>
+      <li><strong>Social Media Graphics</strong> - Quote posts, headers, story text</li>
+      <li><strong>Business Materials</strong> - Simple logos, watermarks, branded text</li>
+      <li><strong>Web Content</strong> - Headers, titles, call-out boxes</li>
+      <li><strong>Presentations</strong> - Styled text that maintains formatting</li>
+      <li><strong>Print Materials</strong> - Text elements with specific fonts</li>
+      <li><strong>Content Creation</strong> - Thumbnails, titles, overlay text</li>
+    </ul>`,
+    isProminent: true,
+    id: "creation-possibilities"
+  },
+  
+  // Tier 2: Features & Access  
+  {
+    question: "What image formats are available?",
     answer: `<p>Currently available:</p>
     <ul>
       <li><strong>PNG</strong> - Perfect for transparent backgrounds, logos, and graphics</li>
@@ -61,45 +57,6 @@ const faqData = [
       <li><strong>WebP</strong> - Modern format with best compression and quality</li>
     </ul>`,
     id: "supported-formats"
-  },
-  
-  // Tier 3: Use Cases & Value
-  {
-    question: "When should I use T2I instead of other tools?",
-    answer: `<p>Use T2I when you need:</p>
-    <ul>
-      <li><strong>Quick text graphics</strong> - No design skills required</li>
-      <li><strong>Transparent backgrounds</strong> - Perfect for overlays and watermarks</li>
-      <li><strong>Consistent text rendering</strong> - Same results across all devices</li>
-      <li><strong>Privacy</strong> - All processing happens in your browser</li>
-      <li><strong>No account setup</strong> - Start using immediately</li>
-    </ul>
-    <p>Don't use T2I if you need artistic images, photo editing, or complex graphics design.</p>`,
-    id: "when-to-use"
-  },
-  {
-    question: "What are common use cases for T2I?",
-    answer: `<p>Popular uses include:</p>
-    <ul>
-      <li><strong>Social Media</strong> - Quote graphics, post headers, story text</li>
-      <li><strong>Business</strong> - Simple logos, watermarks, branded text</li>
-      <li><strong>Web Development</strong> - Text images for better design control</li>
-      <li><strong>Content Creation</strong> - Thumbnails, titles, callout boxes</li>
-      <li><strong>Presentations</strong> - Styled text that maintains formatting</li>
-      <li><strong>Print Materials</strong> - Text elements that need specific fonts</li>
-    </ul>`,
-    id: "use-cases"
-  },
-  {
-    question: "Can I use T2I for commercial projects?",
-    answer: `<p><strong>Yes</strong>, T2I can be used for commercial projects. There are no restrictions on how you use the images you create.</p>
-    <p>However, remember that you're responsible for:</p>
-    <ul>
-      <li>Using fonts you have proper licenses for</li>
-      <li>Not infringing on copyrighted text content</li>
-      <li>Following any trademark guidelines for brand names</li>
-    </ul>`,
-    id: "commercial-use"
   },
   {
     question: "Is T2I free to use?",
@@ -113,8 +70,6 @@ const faqData = [
     <p>You can create unlimited images with full features at no cost.</p>`,
     id: "free-to-use"
   },
-  
-  // Tier 4: Technical & Support
   {
     question: "Do I need to create an account?",
     answer: `<p><strong>No account required!</strong> T2I works immediately when you visit the site.</p>
@@ -126,6 +81,38 @@ const faqData = [
       <li>No password to remember</li>
     </ul>`,
     id: "no-account-needed"
+  },
+  
+  // Tier 3: Natural Clarification
+  {
+    question: "How is T2I different from AI image generators?",
+    answer: `<p>T2I is a text rendering utility, while AI image generators create artistic content:</p>
+    <ul>
+      <li><strong>T2I</strong>: Takes your text and renders it exactly as you typed it into an image format</li>
+      <li><strong>AI Generators</strong>: Interpret text descriptions to create artistic images, photos, or drawings</li>
+    </ul>
+    <p>Think of T2I as a digital typography tool - you get exactly what you type, styled with fonts and colors you choose.</p>`,
+    id: "difference-from-ai"
+  },
+  {
+    question: "How does T2I convert text to images?",
+    answer: `<p>T2I uses web browser technology to render text with your chosen styling (fonts, colors, backgrounds) onto a digital canvas, then exports that canvas as an image file.</p>
+    <p>All processing happens locally in your browser - no servers involved. The text rendering uses the same technology that displays text on websites, ensuring high quality and accuracy.</p>`,
+    id: "how-conversion-works"
+  },
+  
+  
+  // Tier 4: Trust & Security
+  {
+    question: "Can I use T2I for commercial projects?",
+    answer: `<p><strong>Yes</strong>, T2I can be used for commercial projects. There are no restrictions on how you use the images you create.</p>
+    <p>However, remember that you're responsible for:</p>
+    <ul>
+      <li>Using fonts you have proper licenses for</li>
+      <li>Not infringing on copyrighted text content</li>
+      <li>Following any trademark guidelines for brand names</li>
+    </ul>`,
+    id: "commercial-use"
   },
   {
     question: "Is my data private and secure?",
@@ -203,13 +190,13 @@ export { structuredData };
     </div>
 
     <div class="max-w-4xl mx-auto">
-      <!-- Prominent AI Disambiguation Section -->
+      <!-- Getting Started Section -->
       <div class="mb-12">
         <h2 class="text-2xl font-semibold text-primary mb-6 flex items-center">
           <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
-          About AI & What T2I Actually Does
+          Getting Started
         </h2>
         <div class="space-y-3">
           {faqData.filter(item => item.isProminent).map(item => (
@@ -223,10 +210,10 @@ export { structuredData };
         </div>
       </div>
 
-      <!-- Regular FAQ Items -->
+      <!-- Additional Questions -->
       <div class="space-y-6">
         <h2 class="text-2xl font-semibold text-base-content mb-6">
-          General Questions
+          Features & Support
         </h2>
         <div class="space-y-3">
           {faqData.filter(item => !item.isProminent).map(item => (

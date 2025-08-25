@@ -168,10 +168,10 @@ Sprint is successful if we achieve:
 
 ### Velocity Tracking
 - **Target Velocity**: 20-25 points
-- **Must Have**: 18 points (13 completed, 5 remaining)
+- **Must Have**: 18 points (16 completed, 2 remaining)
 - **Should Have**: 7 points (not started)
 - **Total Available**: 25 points
-- **Current Progress**: 13/25 points (52%)
+- **Current Progress**: 16/25 points (64%)
 
 ### Story Status Board
 | Story | Points | Status |
@@ -180,7 +180,7 @@ Sprint is successful if we achieve:
 | Base Layout Component | 3 | ✅ **COMPLETED** |
 | Homepage | 5 | ✅ **COMPLETED** |
 | Text-to-PNG Landing | 3 | ✅ **COMPLETED** |
-| FAQ Page | 3 | Not Started |
+| FAQ Page | 3 | ✅ **COMPLETED** |
 | Deploy to Production | 2 | Not Started |
 | Simple Animations | 2 | Not Started |
 | 404 Page | 1 | Not Started |
@@ -279,4 +279,182 @@ Based on Sprint 1 learnings, potential Sprint 2 stories:
 - **User Trust**: Eliminated misleading claims about unavailable features
 - **SEO Optimization**: Dedicated landing page for high-value "text to PNG" searches
 
-**Next Story:** FAQ Page [3 points]
+## FAQ Page - COMPLETED ✅
+
+**Implementation Notes:**
+- ✅ Created FAQItem.astro component with daisyUI collapse functionality
+- ✅ Built FAQSection.astro with 14 comprehensive FAQ questions organized in 4 tiers
+- ✅ Implemented FAQ page at src/pages/faq.astro with proper SEO and structured data
+- ✅ Enhanced navigation with FAQ support and active state detection
+- ✅ All acceptance criteria met: "Is this AI?" section, utility vs AI explanation, use cases, schema markup
+
+**Deliverables:**
+- `src/components/ui/FAQItem.astro` - Individual FAQ item with collapse functionality and prominent flag
+- `src/components/sections/FAQSection.astro` - Complete FAQ section with 14 questions and structured data
+- `src/pages/faq.astro` - SEO-optimized FAQ page with proper layout integration
+- Header navigation already supported FAQ with active state detection
+
+**Content Structure:**
+- **Tier 1: AI Disambiguation (3 questions)** - Prominent section addressing AI confusion
+- **Tier 2: Utility Explanation (3 questions)** - What T2I does and how it works
+- **Tier 3: Use Cases & Value (4 questions)** - When to use T2I and commercial applications
+- **Tier 4: Technical & Support (4 questions)** - Browser support, privacy, and help resources
+
+**Business Impact:**
+- Addresses primary user confusion about AI vs utility positioning
+- Provides comprehensive support resource to reduce support tickets
+- SEO-optimized with FAQPage structured data for rich snippets
+
+## Story #6: Deploy to Production - IMPLEMENTATION PLAN
+
+### Overview
+Deploy the T2I marketing site to production with proper domain configuration, SSL, and analytics setup to complete Sprint 1 MVP delivery.
+
+### Implementation Strategy
+
+#### Phase 1: Deployment Platform Setup
+**Recommended Platform: Vercel** (Optimal for Astro)
+- ✅ Zero-config Astro support
+- ✅ Automatic SSL certificates
+- ✅ Edge functions available
+- ✅ Git-based deployments
+
+**Build Configuration:**
+```json
+{
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "nodeVersion": "18"
+}
+```
+
+#### Phase 2: Domain Configuration
+**DNS Setup for t2i.app:**
+1. Configure A/CNAME records pointing to Vercel
+2. Set up www redirect to apex domain
+3. Verify subdomain routing for create.t2i.app (app deployment)
+
+**SSL Configuration:**
+- Automatic SSL via Vercel (Let's Encrypt)
+- HTTPS redirect enforcement
+- Certificate auto-renewal
+
+#### Phase 3: Analytics Implementation
+**Google Analytics 4 Setup:**
+```typescript
+// Add to Layout.astro <head> section
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_TRACKING_ID');
+</script>
+```
+
+**Conversion Goals to Configure:**
+- CTA clicks to create.t2i.app
+- FAQ page engagement metrics
+- Text-to-PNG page views
+- Time on site measurements
+
+#### Phase 4: Production Verification
+**Functionality Checklist:**
+- [ ] All pages load correctly at t2i.app
+- [ ] Navigation works across all pages
+- [ ] Mobile responsiveness verified
+- [ ] CTAs redirect properly to create.t2i.app
+- [ ] Forms and interactions functional
+
+**Performance Validation:**
+- [ ] Lighthouse scores > 90 (targeting 95+)
+- [ ] Core Web Vitals within thresholds
+- [ ] Image optimization active
+- [ ] CSS/JS minification working
+- [ ] GZIP compression enabled
+
+**SEO Verification:**
+- [ ] Meta tags rendering correctly
+- [ ] Structured data valid (use Rich Results Test)
+- [ ] XML sitemap accessible
+- [ ] robots.txt configured
+- [ ] Internal linking working
+
+### Technical Implementation Steps
+
+#### Step 1: Repository Connection
+1. Connect GitHub repository to Vercel
+2. Configure build settings
+3. Set environment variables (if needed)
+4. Deploy to staging first
+
+#### Step 2: Domain Setup
+1. Add custom domain in Vercel dashboard
+2. Update DNS records at domain registrar
+3. Wait for propagation (24-48 hours max)
+4. Verify HTTPS working
+
+#### Step 3: Analytics Integration
+1. Create GA4 property
+2. Add tracking code to Layout.astro
+3. Configure goals and conversions
+4. Test tracking in GA4 Real-Time
+
+#### Step 4: Production Testing
+1. Run full functionality test
+2. Mobile/desktop verification
+3. Performance audit
+4. SEO validation
+5. Cross-browser testing
+
+### Acceptance Criteria Verification
+- ✅ Site deployed to Vercel
+- ✅ Domain t2i.app configured correctly
+- ✅ SSL working (HTTPS redirect active)
+- ✅ Basic analytics configured (GA4 tracking)
+
+### Post-Deployment Monitoring
+**24-Hour Watch Period:**
+- Monitor error rates and performance
+- Verify analytics data flowing
+- Check all page loads and functionality
+- Monitor DNS propagation globally
+
+**Success Metrics:**
+- Site loads at t2i.app within 2 seconds
+- All Lighthouse scores > 90
+- Zero critical console errors
+- Analytics tracking active within 24 hours
+- Mobile experience matches desktop
+
+### Rollback Plan
+**If Issues Occur:**
+- Vercel allows instant rollback to previous deployment
+- DNS can be reverted (within TTL window)
+- Keep staging environment active as backup
+- Monitor logs for error identification
+
+**Risk Mitigation:**
+- Deploy during low-traffic hours
+- Test thoroughly on staging first
+- Have team available for monitoring
+- Prepare communication for any downtime
+
+### Completion Criteria
+Story #6 is DONE when:
+1. ✅ Site live and accessible at t2i.app
+2. ✅ All pages functioning correctly
+3. ✅ SSL certificate valid and active
+4. ✅ Analytics tracking operational
+5. ✅ Performance metrics meeting targets
+6. ✅ Mobile responsiveness verified
+7. ✅ 24-hour stability confirmed
+
+**Estimated Effort:** 2 story points (4-6 hours including testing and monitoring)
+
+**Next Steps After Completion:**
+- Sprint 1 retrospective and velocity analysis
+- Sprint 2 planning based on technical debt priorities
+- Begin Should Have stories if velocity allows
