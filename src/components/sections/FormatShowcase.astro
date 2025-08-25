@@ -67,11 +67,12 @@ import Button from '../ui/Button.astro';
       </div>
 
       <!-- JPG Format -->
-      <div class="card bg-base-100 shadow-xl border-2 border-secondary/20 hover:border-secondary/40 transition-colors">
+      <div class="card bg-base-100 shadow-xl border-2 border-secondary/20 opacity-60 relative">
         <div class="card-body">
           <div class="flex items-center gap-3 mb-4">
             <div class="badge badge-secondary badge-lg font-bold">JPG</div>
             <h3 class="card-title">Optimized Size</h3>
+            <div class="badge badge-warning badge-sm">Coming Soon</div>
           </div>
           
           <div class="space-y-3 mb-6">
@@ -107,23 +108,24 @@ import Button from '../ui/Button.astro';
 
           <div class="card-actions justify-end">
             <Button 
-              href="https://create.t2i.app" 
               variant="secondary" 
               size="sm"
-              target="_blank"
+              disabled
+              class="cursor-not-allowed opacity-50"
             >
-              Create JPG →
+              Coming Soon
             </Button>
           </div>
         </div>
       </div>
 
       <!-- WebP Format -->
-      <div class="card bg-base-100 shadow-xl border-2 border-accent/20 hover:border-accent/40 transition-colors">
+      <div class="card bg-base-100 shadow-xl border-2 border-accent/20 opacity-60 relative">
         <div class="card-body">
           <div class="flex items-center gap-3 mb-4">
             <div class="badge badge-accent badge-lg font-bold">WebP</div>
             <h3 class="card-title">Modern & Fast</h3>
+            <div class="badge badge-warning badge-sm">Coming Soon</div>
           </div>
           
           <div class="space-y-3 mb-6">
@@ -159,12 +161,12 @@ import Button from '../ui/Button.astro';
 
           <div class="card-actions justify-end">
             <Button 
-              href="https://create.t2i.app" 
               variant="accent" 
               size="sm"
-              target="_blank"
+              disabled
+              class="cursor-not-allowed opacity-50"
             >
-              Create WebP →
+              Coming Soon
             </Button>
           </div>
         </div>
@@ -175,19 +177,26 @@ import Button from '../ui/Button.astro';
     <div class="mt-12 text-center">
       <div class="card bg-base-100 shadow-lg max-w-3xl mx-auto">
         <div class="card-body">
-          <h3 class="card-title justify-center mb-4">Need Help Choosing?</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-            <div class="text-center p-3 bg-base-200 rounded">
-              <div class="font-semibold text-primary mb-1">For Transparency</div>
-              <div class="text-base-content/70">Choose PNG for logos, watermarks, and graphics that need transparent backgrounds</div>
+          <h3 class="card-title justify-center mb-4">PNG Format Available Now</h3>
+          <div class="max-w-lg mx-auto">
+            <div class="text-center p-4 bg-primary/10 rounded-lg border border-primary/20">
+              <div class="font-semibold text-primary mb-2">✅ PNG Format Ready</div>
+              <div class="text-base-content/70 mb-3">
+                Create images with transparent backgrounds, perfect for logos, watermarks, and graphics that need to blend with any background.
+              </div>
+              <Button 
+                href="https://create.t2i.app" 
+                variant="primary" 
+                size="sm"
+                target="_blank"
+              >
+                Start Creating PNG →
+              </Button>
             </div>
-            <div class="text-center p-3 bg-base-200 rounded">
-              <div class="font-semibold text-secondary mb-1">For Sharing</div>
-              <div class="text-base-content/70">Choose JPG for social media posts, thumbnails, and general image sharing</div>
-            </div>
-            <div class="text-center p-3 bg-base-200 rounded">
-              <div class="font-semibold text-accent mb-1">For Performance</div>
-              <div class="text-base-content/70">Choose WebP for websites and apps where file size and quality matter</div>
+            <div class="text-center mt-4">
+              <p class="text-sm text-base-content/60">
+                JPG and WebP formats coming soon to give you more export options.
+              </p>
             </div>
           </div>
         </div>

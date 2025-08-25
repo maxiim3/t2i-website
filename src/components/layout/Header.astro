@@ -10,7 +10,7 @@ const { currentPath } = Astro.props;
 // Navigation items
 const navigation = [
   { name: 'Home', href: '/', current: currentPath === '/' },
-  { name: 'Text-to-PNG', href: 'https://create.t2i.app', external: true },
+  { name: 'Text-to-PNG', href: '/text-to-png', current: currentPath === '/text-to-png' },
   { name: 'FAQ', href: '/faq', current: currentPath === '/faq' }
 ];
 ---
