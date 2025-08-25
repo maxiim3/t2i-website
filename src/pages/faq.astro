@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQSection, { structuredData } from '../components/sections/FAQSection.astro';
+
+const title = "FAQ - T2I Text-to-Image Converter";
+const description = "Frequently asked questions about T2I, the simple text-to-image conversion tool. Learn what T2I does, how it differs from AI art generators, and common use cases.";
+const currentPath = '/faq';
+---
+
+<Layout 
+  title={title}
+  description={description}
+  currentPath={currentPath}
+  structuredData={structuredData}
+  ogType="website"
+  ogTitle={title}
+  ogDescription={description}
+>
+  <FAQSection />
+</Layout>

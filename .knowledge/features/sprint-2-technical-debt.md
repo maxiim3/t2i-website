@@ -54,43 +54,103 @@ export interface ButtonProps {
 - Better developer experience with IntelliSense
 - Reduced code duplication
 
-### 2. Button Icon Layout Fix
-**Issue**: Icons and text are not properly aligned in buttons
+### 2. Button System Overhaul
+**Issue**: Multiple button layout and positioning issues affecting professional appearance
 **Priority**: Medium (Visual Polish)
-**Effort**: 1 story point
+**Effort**: 2-3 story points
 
 **Current Problems:**
+
+#### A. Icon and Text Alignment Issues
 - Icons not vertically centered with text
 - Inconsistent spacing between icon and text
 - Loading spinner alignment issues
 
+#### B. Header CTA Button Positioning (NEW)
+- "Create Images" button appears "wildly positioned" on desktop view
+- Button positioning inconsistent across viewport sizes
+- Affects professional appearance and user trust
+
 **Current Implementation:**
+
 ```astro
+<!-- Button Component (Button.astro) -->
 <Component class={buttonClasses}>
   {loading && <span class="loading loading-spinner loading-sm mr-2"></span>}
   <slot />
 </Component>
+
+<!-- Header CTA (Header.astro) -->
+<div class="navbar-end">
+  <Button
+    href="https://create.t2i.app"
+    variant="primary"
+    target="_blank"
+    class="btn-sm lg:btn-md"
+  >
+    Create Images
+  </Button>
+</div>
 ```
 
+**Root Cause Analysis:**
+- DaisyUI navbar-end class may conflict with custom button sizing
+- Responsive classes (btn-sm lg:btn-md) creating unexpected behavior
+- Lack of explicit positioning constraints for CTA button
+- No standardized button container patterns
+
 **Proposed Solution:**
+
 ```astro
+<!-- Enhanced Button Component -->
 <Component class={buttonClasses}>
-  <span class="inline-flex items-center gap-2">
-    <span class="flex items-center">
-      {loading && <span class="loading loading-spinner loading-sm"></span>}
-    </span>
+  <span class="inline-flex items-center justify-center gap-2">
+    {loading && (
+      <span class="flex items-center">
+        <span class="loading loading-spinner loading-sm"></span>
+      </span>
+    )}
     <span class="flex items-center">
       <slot />
     </span>
   </span>
 </Component>
+
+<!-- Fixed Header CTA Container -->
+<div class="navbar-end flex items-center">
+  <div class="flex-none">
+    <Button
+      href="https://create.t2i.app"
+      variant="primary"
+      target="_blank"
+      size="md"
+      class="whitespace-nowrap"
+    >
+      Create Images
+    </Button>
+  </div>
+</div>
 ```
 
+**Implementation Steps:**
+1. Fix button internal layout with proper flexbox structure
+2. Add explicit container constraints for header CTA
+3. Remove conflicting responsive size classes
+4. Add whitespace-nowrap to prevent text wrapping
+5. Test across all viewport sizes (mobile, tablet, desktop)
+
+**Business Impact:**
+- **User Trust**: Professional button appearance increases credibility
+- **Conversion Rate**: Well-positioned CTA improves click-through rates
+- **Brand Perception**: Polished UI reflects quality of the product
+- **Mobile Experience**: Consistent button behavior across devices
+
 **Benefits:**
-- Perfect icon and text alignment
-- Consistent visual appearance
-- Better responsive behavior
-- Professional polish
+- Perfect icon and text alignment in all buttons
+- Consistent CTA positioning on desktop
+- Better responsive behavior across all viewports
+- Professional polish throughout the application
+- Reduced visual bugs and layout shifts
 
 ## Medium Priority Improvements
 

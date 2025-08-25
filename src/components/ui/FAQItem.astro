@@ -1,0 +1,71 @@
+---
+export interface Props {
+  question: string;
+  answer: string;
+  isProminent?: boolean;
+  id?: string;
+}
+
+const { question, answer, isProminent = false, id } = Astro.props;
+
+// Generate ID if not provided
+const itemId = id || question.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
+---
+
+<div 
+  class={`collapse collapse-plus bg-base-100 shadow-sm border border-base-200 mb-3 ${isProminent ? 'border-primary/30 bg-primary/5' : ''}`}
+  id={itemId}
+>
+  <input type="radio" name="faq-accordion" class="min-h-0" />
+  
+  <div class={`collapse-title text-lg font-medium py-4 px-6 hover:bg-base-50 transition-colors ${isProminent ? 'text-primary font-semibold' : 'text-base-content'}`}>
+    {isProminent && (
+      <span class="badge badge-primary badge-sm mr-2">Important</span>
+    )}
+    {question}
+  </div>
+  
+  <div class="collapse-content px-6 pb-4">
+    <div class={`prose prose-sm max-w-none ${isProminent ? 'prose-primary' : ''}`}>
+      <div class="text-base-content/80 leading-relaxed" set:html={answer}></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Enhanced focus styles for accessibility */
+  .collapse input[type="radio"]:focus + .collapse-title {
+    outline: 2px solid hsl(var(--p));
+    outline-offset: 2px;
+  }
+  
+  /* Smooth transitions */
+  .collapse-title {
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  /* Prominent FAQ styling */
+  .collapse:has(input:checked) .collapse-title {
+    border-bottom: 1px solid hsl(var(--b3));
+  }
+  
+  /* Custom hover effect */
+  .hover\:bg-base-50:hover {
+    background-color: hsl(var(--b2));
+  }
+  
+  /* Ensure proper text rendering */
+  .prose p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Badge styling for prominent items */
+  .badge-primary {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+</style>
