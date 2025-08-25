@@ -1,0 +1,110 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  og?: {
+    title?: string;
+    description?: string;
+    image?: string;
+    type?: string;
+  };
+  twitter?: {
+    title?: string;
+    description?: string;
+    image?: string;
+    card?: 'summary' | 'summary_large_image';
+  };
+  structuredData?: object;
+  noindex?: boolean;
+}
+
+const {
+  title = "T2I - Convert Text to Images",
+  description = "T2I is a utility tool that converts text into PNG/JPG/WebP images. Not an AI art generator - just simple text-to-image conversion.",
+  canonical,
+  og = {},
+  twitter = {},
+  structuredData,
+  noindex = false
+} = Astro.props;
+
+// Default structured data for organization
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "T2I",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web Browser",
+  "description": description,
+  "url": "https://t2i.app",
+  "sameAs": [
+    "https://create.t2i.app"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "T2I"
+  }
+};
+
+// Merge provided structured data with defaults
+const finalStructuredData = structuredData ? 
+  { ...defaultStructuredData, ...structuredData } : 
+  defaultStructuredData;
+
+// Get current URL for canonical and og:url
+const currentUrl = canonical || Astro.url.href;
+
+// Default OG values
+const ogTitle = og.title || title;
+const ogDescription = og.description || description;
+const ogType = og.type || "website";
+
+// Default Twitter values  
+const twitterTitle = twitter.title || title;
+const twitterDescription = twitter.description || description;
+const twitterCard = twitter.card || "summary_large_image";
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+
+{canonical && <link rel="canonical" href={canonical} />}
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:site_name" content="T2I" />
+{og.image && <meta property="og:image" content={og.image} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content={twitterCard} />
+<meta property="twitter:url" content={currentUrl} />
+<meta property="twitter:title" content={twitterTitle} />
+<meta property="twitter:description" content={twitterDescription} />
+{twitter.image && <meta property="twitter:image" content={twitter.image} />}
+
+<!-- Additional SEO Meta Tags -->
+<meta name="theme-color" content="#1a1a1a" />
+<meta name="color-scheme" content="dark" />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(finalStructuredData)} />
+
+<!-- Favicon and Icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Generator -->
+<meta name="generator" content={Astro.generator} />

@@ -1,40 +1,67 @@
 ---
 import "../assets/app.css";
+import SEO from "../components/SEO.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
 
 export interface Props {
 	title?: string;
 	description?: string;
+	canonical?: string;
+	og?: {
+		title?: string;
+		description?: string;
+		image?: string;
+		type?: string;
+	};
+	twitter?: {
+		title?: string;
+		description?: string;
+		image?: string;
+		card?: 'summary' | 'summary_large_image';
+	};
+	structuredData?: object;
+	noindex?: boolean;
+	hideHeader?: boolean;
+	hideFooter?: boolean;
 }
 
 const { 
-	title = "T2I - Convert Text to Images",
-	description = "T2I is a utility tool that converts text into PNG/JPG/WebP images. Not an AI art generator - just simple text-to-image conversion."
+	title,
+	description,
+	canonical,
+	og,
+	twitter,
+	structuredData,
+	noindex = false,
+	hideHeader = false,
+	hideFooter = false
 } = Astro.props;
+
+// Get current path for navigation active states
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="brand">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content={description} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
+		<SEO 
+			title={title}
+			description={description}
+			canonical={canonical}
+			og={og}
+			twitter={twitter}
+			structuredData={structuredData}
+			noindex={noindex}
+		/>
 	</head>
-	<body class="min-h-screen bg-base-100 text-base-content">
-		<main>
+	<body class="min-h-screen bg-base-100 text-base-content flex flex-col">
+		{!hideHeader && <Header currentPath={currentPath} />}
+		
+		<main class="flex-1">
 			<slot />
 		</main>
+		
+		{!hideFooter && <Footer />}
 	</body>
 </html>

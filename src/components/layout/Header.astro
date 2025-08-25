@@ -1,0 +1,126 @@
+---
+import Button from '../ui/Button.astro';
+
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath } = Astro.props;
+
+// Navigation items
+const navigation = [
+  { name: 'Home', href: '/', current: currentPath === '/' },
+  { name: 'Text-to-PNG', href: 'https://create.t2i.app', external: true },
+  { name: 'FAQ', href: '/faq', current: currentPath === '/faq' }
+];
+---
+
+<header class="navbar bg-base-100 shadow-lg border-b border-base-300">
+  <div class="container mx-auto px-4">
+    <!-- Mobile menu button -->
+    <div class="navbar-start">
+      <div class="dropdown lg:hidden">
+        <label for="mobile-menu" tabindex="0" class="btn btn-ghost btn-circle" aria-label="Open navigation menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-200 rounded-box w-52">
+          {navigation.map((item) => (
+            <li>
+              <a 
+                href={item.href}
+                class={`${item.current ? 'active' : ''}`}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+              >
+                {item.name}
+                {item.external && (
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Brand/Logo -->
+    <div class="navbar-center lg:navbar-start">
+      <a href="/" class="btn btn-ghost text-xl font-bold text-primary hover:text-primary-focus">
+        T2I
+        <span class="text-sm font-normal text-base-content opacity-70 ml-1">
+          (Not AI Art)
+        </span>
+      </a>
+    </div>
+
+    <!-- Desktop navigation -->
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1 gap-2">
+        {navigation.map((item) => (
+          <li>
+            <a 
+              href={item.href}
+              class={`hover:bg-base-200 ${item.current ? 'bg-base-200 text-primary' : ''}`}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+            >
+              {item.name}
+              {item.external && (
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="navbar-end">
+      <Button
+        href="https://create.t2i.app"
+        variant="primary"
+        target="_blank"
+        class="btn-sm lg:btn-md"
+      >
+        Create Images
+      </Button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu overlay (CSS-only toggle) -->
+<input type="checkbox" id="mobile-menu" class="hidden">
+
+<style>
+  /* Enhance mobile menu accessibility */
+  .dropdown:focus-within .dropdown-content {
+    display: block;
+  }
+  
+  /* Smooth transitions */
+  .navbar {
+    transition: all 0.3s ease;
+  }
+  
+  .menu a {
+    transition: all 0.2s ease;
+  }
+  
+  /* Active state styling */
+  .menu a.active {
+    background-color: hsl(var(--bc) / 0.1);
+    color: hsl(var(--p));
+    font-weight: 600;
+  }
+  
+  /* External link icon spacing */
+  .menu a svg {
+    flex-shrink: 0;
+  }
+</style>
