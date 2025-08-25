@@ -73,3 +73,5 @@ The marketing site serves as the primary SEO and discovery layer, driving qualif
 2. **SEO Focus**: Target utility keywords, not AI/artistic keywords
 3. **Performance**: Maintain Lighthouse scores > 95
 4. **Cross-domain**: Ensure smooth navigation between marketing site and PWA
+- don't count tasks in hours or days or weeks. use sprint points instead
+- we use tailwindcss v4, we don't need a configuration file
